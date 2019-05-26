@@ -5,6 +5,7 @@ bindgen --no-layout-tests  -o ./src/avutil/mod.rs /usr/include/libavutil/avutil.
 bindgen --no-layout-tests  -o ./src/avutil/opt.rs /usr/include/libavutil/opt.h --raw-line="#[link(name = \"avutil\")] extern {}"
 bindgen --no-layout-tests  -o ./src/avutil/samplefmt.rs /usr/include/libavutil/samplefmt.h --raw-line="#[link(name = \"avutil\")] extern {}"
 bindgen --no-layout-tests  -o ./src/samplerate.rs /usr/include/samplerate.h --raw-line "#[cfg(target_os = \"windows\")]" --raw-line "#[link(name = \"libsamplerate-0\")] extern {}" --raw-line "#[cfg(not(target_os = \"windows\"))]" --raw-line "#[link(name = \"samplerate\")] extern {}"
+bindgen --no-layout-tests  -o ./src/pulse/simple.rs /usr/include/pulse/simple.h --raw-line="#[link(name = \"pulse\")] extern {}"
 */
 
 #![allow(warnings)]
@@ -13,4 +14,6 @@ pub mod avcodec;
 pub mod avformat;
 pub mod avutil;
 pub mod samplerate;
+#[cfg(target_os = "linux")]
+pub mod pulse;
 
