@@ -1,0 +1,9 @@
+[package]
+name = "caldera-bindings"
+version = "0.0.1"
+authors = ["Austin Johnson <me@austinj.me>"]
+edition = "2018"
+license = "MIT"
+description = "Bindings for Caldera which includes bindings for libavcodec, libavformat, libavutil and libsamplerate."
+
+[dependencies]
